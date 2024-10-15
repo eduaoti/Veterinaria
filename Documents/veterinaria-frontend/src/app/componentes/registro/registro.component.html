@@ -1,0 +1,57 @@
+<div class="container">
+    <h2>Registro de Mascotas</h2>
+    <form [formGroup]="petForm" (ngSubmit)="onSubmit()">
+  
+      <label for="petId">ID Mascota:</label>
+      <input id="petId" formControlName="petId" string>
+  
+      <label for="fileNumber">Número de Expediente:</label>
+      <input id="fileNumber" formControlName="fileNumber" required>
+  
+      <label for="species">Especie:</label>
+      <select id="species" formControlName="species">
+        <option *ngFor="let species of speciesList" [value]="species">{{ species }}</option>
+      </select>
+  
+      <label for="breed">Raza:</label>
+      <select id="breed" formControlName="breed">
+        <option *ngFor="let breed of breedList" [value]="breed">{{ breed }}</option>
+      </select>
+  
+      <label for="name">Nombre:</label>
+      <input id="name" formControlName="name" required>
+  
+      <label for="age">Edad:</label>
+      <input type="number" id="age" formControlName="age" required>
+  
+      <label for="gender">Sexo:</label>
+      <select id="gender" formControlName="gender" required>
+        <option value="Macho">Macho</option>
+        <option value="Hembra">Hembra</option>
+      </select>
+  
+      <label for="weight">Peso (kg):</label>
+      <input type="number" id="weight" formControlName="weight" required>
+  
+      <label for="entryDate">Fecha de Ingreso:</label>
+      <input type="date" id="entryDate" formControlName="entryDate" required>
+  
+      <label for="allergies">Alergias:</label>
+      <textarea id="allergies" formControlName="allergies"></textarea>
+  
+      <label for="foodQuality">Calidad de Alimentación:</label>
+      <select id="foodQuality" formControlName="foodQuality">
+        <option *ngFor="let quality of foodQualityList" [value]="quality">{{ quality }}</option>
+      </select>
+  
+      <label for="foodObservations">Observaciones sobre Alimentación:</label>
+      <textarea id="foodObservations" formControlName="foodObservations"></textarea>
+  
+      <label for="observations">Observaciones Generales:</label>
+      <textarea id="observations" formControlName="observations"></textarea>
+  
+      <button type="submit" [disabled]="!petForm.valid">Registrar Mascota</button>
+  
+    </form>
+  </div>
+  
