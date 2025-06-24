@@ -1,7 +1,8 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component'; // Asegúrate de que la ruta sea correcta
-import { HomeComponent } from './home/home.component'; // Asegúrate de que la ruta sea correcta
+
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 import { VeterinarioInicioComponent } from './componentes/veterinario-inicio/veterinario-inicio.component';
 import { ClienteInicioComponent } from './componentes/cliente-inicio/cliente-inicio.component';
 import { AgendarCitasComponent } from './componentes/agendar-citas/agendar-citas.component';
@@ -20,33 +21,94 @@ import { NosotrosComponent } from './componentes/nosotros/nosotros.component';
 import { NotFoundComponent } from './componentes/not-found/not-found.component';
 import { AvisoPrivacidadComponent } from './aviso-privacidad/aviso-privacidad.component';
 
+// 👉 Importa tus guards
+import { AuthGuard } from './guards/auth.guard';
+import { RolGuard } from './guards/rol.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/principio', pathMatch: 'full' }, // Redirige a Home por defecto
-  { path: 'principio', component: HomeComponent }, // Ruta para el componente Home
-  { path: 'login', component: LoginComponent }, // Ruta para el componente de inicio de sesión
-  { path: 'veterinario-inicio', component: VeterinarioInicioComponent},
-  { path: 'cliente-inicio', component: ClienteInicioComponent},
-  { path: 'agendar-cita', component: AgendarCitasComponent},
-  { path: 'cliente-registro', component: ClienteRegistroComponent},
-  { path: 'mis-citas', component: MisCitasComponent},
-  { path: 'agendar-cita/:id', component: AgendarCitasComponent }, // Ruta para editar cita
+  // Rutas públicas (sin guard)
+  { path: '', redirectTo: '/principio', pathMatch: 'full' },
+  { path: 'principio', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'cliente-registro', component: ClienteRegistroComponent },
+  { path: 'nosotros', component: NosotrosComponent },
+  { path: 'contacto', component: ContactoComponent },
   { path: 'recuperar-contraseña', component: RecuperacionPasswordComponent },
-  { path: 'calendario', component: CalendarioComponent},
-  { path: 'perfil', component: PerfilComponent},
-  { path: 'registro', component: RegistroComponent},
-  { path: 'expedientes', component: ExpedientesComponent},
-  { path: 'historial-vacunas', component: PDBuilderComponent},
-  { path: 'planes', component: PlanesComponent},
-  { path: 'servicios', component: ServiciosComponent},
-  { path: 'contacto', component: ContactoComponent},
-  { path: 'nosotros', component: NosotrosComponent},
+  { path: 'servicios', component: ServiciosComponent },
   { path: 'aviso-privacidad', component: AvisoPrivacidadComponent },
-  { path: '**', component: NotFoundComponent },
 
+  // CLIENTE: solo puede acceder si está logueado y su rol es 'cliente'
+  { 
+    path: 'cliente-inicio', 
+    component: ClienteInicioComponent,
+    canActivate: [AuthGuard, RolGuard],
+    data: { expectedRole: 'cliente' }
+  },
+  { 
+    path: 'agendar-cita', 
+    component: AgendarCitasComponent,
+    canActivate: [AuthGuard, RolGuard],
+    data: { expectedRole: 'cliente' }
+  },
+  { 
+    path: 'mis-citas', 
+    component: MisCitasComponent,
+    canActivate: [AuthGuard, RolGuard],
+    data: { expectedRole: 'cliente' }
+  },
+  {
+    path: 'perfil',
+    component: PerfilComponent,
+    canActivate: [AuthGuard, RolGuard],
+    data: { expectedRole: ['cliente', 'veterinario'] }
+  }, 
+  { 
+    path: 'agendar-cita/:id', 
+    component: AgendarCitasComponent,
+    canActivate: [AuthGuard, RolGuard],
+    data: { expectedRole: 'cliente' }
+  },
 
+  // VETERINARIO: solo puede acceder si está logueado y su rol es 'veterinario'
+  { 
+    path: 'veterinario-inicio', 
+    component: VeterinarioInicioComponent,
+    canActivate: [AuthGuard, RolGuard],
+    data: { expectedRole: 'veterinario' }
+  },
+  { 
+    path: 'calendario', 
+    component: CalendarioComponent,
+    canActivate: [AuthGuard, RolGuard],
+    data: { expectedRole: 'veterinario' }
+  },
+  { 
+    path: 'expedientes', 
+    component: ExpedientesComponent,
+    canActivate: [AuthGuard, RolGuard],
+    data: { expectedRole: 'veterinario' }
+  },
+  { 
+    path: 'historial-vacunas', 
+    component: PDBuilderComponent,
+    canActivate: [AuthGuard, RolGuard],
+    data: { expectedRole: 'veterinario' }
+  },
+  { 
+    path: 'planes', 
+    component: PlanesComponent,
+    canActivate: [AuthGuard, RolGuard],
+    data: { expectedRole: 'veterinario' }
+  },
+  { 
+    path: 'registro', 
+    component: RegistroComponent,
+    canActivate: [AuthGuard, RolGuard],
+    data: { expectedRole: 'veterinario' }
+  },
 
-  // Aquí puedes agregar más rutas según tu aplicación
+  // Not found
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
