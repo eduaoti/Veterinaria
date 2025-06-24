@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap'); /* Cambia a la fuente que necesitas */
+/* Título principal */
+.main-title {
+  font-family: 'Roboto', sans-serif; /* Cambia a la fuente deseada */
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+  animation: fadeInBounce 1.2s ease;
+}
+
+/* Animación de aparición con rebote */
+@keyframes fadeInBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* Contenedor principal */
+.container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 150px; /* 💡 Espacio para navbar + migas de pan */
+
+}
+
+/* Contenedor de pestañas */
+.tabs-container {
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+}
+
+/* Fondo de la barra de progreso */
+.progress-bar-background {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 6px; /* Aumentado el grosor */
+  width: 100%;
+  background-color: #ddd;
+  z-index: 0;
+}
+
+/* Barra de progreso activa */
+.progress-bar-fill {
+  position: absolute;
+  height: 100%;
+  background-color: #333;
+  width: 0%;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Clases de avance de barra de progreso */
+.progress-bar-fill.step-1 {
+  width: 33.33%;
+}
+
+.progress-bar-fill.step-2 {
+  width: 66.66%;
+}
+
+.progress-bar-fill.step-3 {
+  width: 100%;
+}
+
+.nav-tabs {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-link.progress-tab {
+  padding: 15px 25px; /* Ajuste del padding para mayor espacio */
+  color: #666;
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+  font-size: 1.2rem; /* Tamaño de letra aumentado */
+  transition: color 0.3s ease;
+}
+
+.nav-link.progress-tab.active {
+  color: #333;
+  font-weight: bold;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card-title {
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.alert {
+  text-align: center;
+  background-color: #e6e6e6;
+  color: #333;
+}
+
+.btn-primary {
+  background-color: #333;
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #555;
+}
+
+/* Contenedores de carga */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  text-align: center;
+  padding: 25px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+}
+
+/* Estilos monocromáticos para los estados */
+.loading-container.waiting {
+  background-image: url('../../assets/4.png');
+  background-size: 80px 80px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding-top: 100px;
+}
+
+.loading-container.processing {
+  background-image: url('../../assets/1.png');
+  background-size: 80px 80px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding-top: 100px;
+}
+
+.loading-container.attended {
+  background-image: url('../../assets/2.png');
+  background-size: 80px 80px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding-top: 100px;
+}
+/* Iconos en fichas */
+.card-title i,
+.card-text i {
+  color: #666;
+  font-size: 1.2rem;
+  margin-right: 8px;
+}
+
+.btn-warning i,
+.btn-danger i {
+  margin-right: 5px;
+}
+.button-group {
+  display: flex;
+  gap: 8px; /* Espacio entre botones */
+}

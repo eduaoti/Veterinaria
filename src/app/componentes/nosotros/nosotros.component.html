@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXPET HEALTH</title>
+    <link rel="stylesheet" href="nosotros.component.css"> <!-- Archivo CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <app-navbar-home></app-navbar-home>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros" class="full-width-section">
+        <div class="container">
+            <h2 class="fade-in">La mejor atención para el bienestar de tu mascota</h2>
+            <p class="slide-in">
+                En <strong>LUXPET HEALTH</strong>, combinamos años de experiencia con un equipo de profesionales apasionados, 
+                ofreciendo atención veterinaria de alta calidad. Nuestro compromiso es tratar a cada mascota como si fuera 
+                nuestra, garantizando un servicio excepcional.
+            </p>
+
+            <div class="imagen-nosotros"></div>
+
+            <h3 class="fade-in">Experiencia y compromiso</h3>
+            <p class="slide-in">
+                Nos hemos consolidado como un referente en el cuidado integral de mascotas, utilizando tecnología de punta 
+                y un enfoque humano en cada tratamiento. Tu mascota merece lo mejor y estamos aquí para brindárselo.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>LUXPET HEALTH</h2>
+                <p>Clínica Veterinaria</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="/nosotros">Nosotros</a>
+                <a href="/servicios">Servicios</a>
+                <a href="/contacto">Contacto</a>
+                <a routerLink="/aviso-privacidad">Aviso de privacidad</a>
+
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Emergencias 24 hrs</h3>
+                <h3>Contacto</h3>
+                <p>Teléfono: +123 456 789</p>
+                <p>Email: luxepethealth&#64;gmail.com</p>
+                <p>Dolores Hidalgo, Guanajuato.</p>
+            </div>
+        </div>
+
+        <!-- Redes Sociales debajo de las secciones -->
+        <div class="footer-social">
+            <a href="https://www.facebook.com/luxpet" target="_blank" rel="noopener noreferrer" class="icon facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/luxpet_health" target="_blank" rel="noopener noreferrer" class="icon instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/luxpet_health" target="_blank" rel="noopener noreferrer" class="icon x">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+        </div>
+    </footer>
+
+<!-- Botones de scroll -->
+<button class="scroll-btn scroll-top" id="scrollTopBtn" (click)="scrollToTop()">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+  <button class="scroll-btn scroll-bottom" id="scrollBottomBtn" (click)="scrollToBottom()">
+    <i class="fa fa-arrow-down"></i>
+  </button>

@@ -1,0 +1,40 @@
+# Node
+/node_modules
+npm-debug.log*
+yarn-error.log*
+
+# Angular build
+/dist
+/tmp
+/out-tsc
+/.angular/cache
+
+
+# IDE/editor config
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+
+# Coverage & logs
+/coverage
+/connect.lock
+/libpeerconnection.log
+testem.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Uploads (si tienes una carpeta local de imágenes o archivos grandes)
+/uploads
+
+# Backups & dumps
+*.bak
+*.dump
+/backups
+# Gradle build cache (¡agregado!)
+.gradle/

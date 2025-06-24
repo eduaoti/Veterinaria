@@ -1,0 +1,201 @@
+/* Estilo general para la barra de navegación */
+.navbar {
+  height: 100px;
+  background-color: #737373;
+  background-image: url('../../assets/PHOTO-2024-10-21-19-10-20-removebg-preview.png');
+  background-size: 100px 80px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  border-radius: 0 0 20px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+  color: #f2f2f2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: 'Lato', sans-serif;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Contenedor principal de la barra */
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Contenedor del logo */
+.logo-container {
+  flex-shrink: 0;
+  width: 100px;
+}
+
+/* Nombre de la clínica centrado */
+.nombre-veterinaria {
+  flex-grow: 1;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6em;
+  color: #f2f2f2;
+  white-space: nowrap;
+  position: relative;
+  left: 0;
+  transform: none;
+}
+
+/* Contenedor de botones + perfil */
+.right-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Botones de navegación */
+.button-container {
+  display: flex;
+  gap: 20px;
+  transition: all 0.3s ease;
+  z-index: 1100;
+}
+
+/* Botón individual */
+.nav-button {
+  margin: 0 15px;
+  padding: 10px 20px;
+  background-color: #5a5a5a;
+  color: #f2f2f2;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-button:hover {
+  background-color: #cfb1e4;
+  color: #737373;
+  transform: translateY(-2px);
+}
+
+/* Contenedor de perfil */
+.profile-container {
+  display: flex;
+  align-items: center;
+}
+
+.profile-button {
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background-color: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Menú del perfil */
+.profile-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #ffffff;
+  color: #333333;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 1200;
+  width: 140px;
+  animation: fadeIn 0.3s ease;
+}
+
+.profile-menu div {
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-menu div:hover {
+  background-color: #f5f5f5;
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 10px;
+  }
+
+  .navbar-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nombre-veterinaria {
+    font-size: 1.4em;
+    margin: 10px 0;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-top: 5px;
+  }
+
+  .right-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .button-container {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .nav-button {
+    margin: 5px 0;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+
+  .profile-container {
+    margin-top: 10px;
+  }
+}
+
+/* Oculta la navbar cuando se hace scroll hacia abajo */
+.navbar.hidden {
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
+}

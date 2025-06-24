@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendario Veterinario</title>
+  <link rel="stylesheet" href="calendario.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+  <div class="calendar">
+    <div class="calendar-header">
+      <button (click)="cambiarMes(-1)">Anterior</button>
+      <div class="month-year" [ngClass]="getMonthClass()">
+        <i [ngClass]="getMonthIcon()" class="month-icon"></i> {{ obtenerMesAnioActual() }}
+      </div>
+      <button (click)="cambiarMes(1)">Siguiente</button>
+    </div>
+
+    <div class="calendar-body">
+      <div class="day-names">
+        <div *ngFor="let dia of diasSemana">{{ dia }}</div>
+      </div>
+      <div class="days">
+        <div
+          *ngFor="let dia of diasDelMes"
+          [class.current]="dia && esHoy(dia)"
+          [class.has-appointments]="dia && tieneCitas(dia)"
+          [class.weekend]="dia && esFinDeSemana(dia)"
+          (click)="dia && !esFinDeSemana(dia) && seleccionarDia(dia)"
+        >
+          <span *ngIf="dia && esHoy(dia)" class="paw-icon">
+            <i class="fas fa-paw"></i>
+          </span>
+          {{ dia ? dia.getDate() : '' }}
+        </div>
+      </div>
+
+      <div class="appointments" *ngIf="diaSeleccionado">
+        <h3 style="text-align: center;">Citas para {{ diaSeleccionado | date: "EEEE, d 'de' MMMM 'de' y" : 'es' }}</h3>
+        <div *ngIf="citasDelDia.length > 0; else noCitas">
+          <div class="horarios">
+            <div
+            class="hora"
+            *ngFor="let hora of horasDelDia"
+            [class.has-appointment]="citasPorHora[hora]"
+            [class.visita]="citasPorHora[hora]?.estado === 'visita'"
+            [class.atendida]="citasPorHora[hora]?.estado === 'atendida'"
+            (click)="citasPorHora[hora] && citasPorHora[hora].estado !== 'atendida' && mostrarCita(citasPorHora[hora])"
+          >
+            {{ hora }}
+            <span *ngIf="citasPorHora[hora]?.estado === 'visita'">
+              - Mascota: {{ citasPorHora[hora]?.nombreMascota }}
+            </span>
+          </div>
+          
+          
+          
+          </div>
+
+  <!-- Detalle de la cita seleccionada -->
+<div *ngIf="citaSeleccionada" class="cita-detalle">
+  <p><strong>Cliente:</strong> {{ citaSeleccionada.cliente }}</p>
+  <p><strong>Correo:</strong> {{ citaSeleccionada.correo }}</p>
+  <p *ngIf="citaSeleccionada.estado === 'visita' && citaSeleccionada.nombreMascota">
+    <strong>Mascota:</strong> {{ citaSeleccionada.nombreMascota }}
+  </p>
+  <p><strong>Comentario:</strong> {{ citaSeleccionada.comentario }}</p>
+
+  <!-- Plan de cuidado si existe -->
+  <div *ngIf="citaSeleccionada.plan">
+    <h4>Plan de Cuidado</h4>
+    <p><strong>Dieta:</strong> {{ citaSeleccionada.plan.dieta }}</p>
+    <p><strong>Ejercicio:</strong> {{ citaSeleccionada.plan.ejercicio }}</p>
+    <div *ngFor="let visita of citaSeleccionada.plan.visitas">
+      <p><strong>Visita:</strong> {{ visita.fecha | date: 'fullDate' }} - {{ visita.descripcion }}</p>
+    </div>
+  </div>
+
+  <!-- Servicios de la cita -->
+  <div *ngIf="citaSeleccionada.servicios?.length">
+    <h4>Servicios Agregados</h4>
+    <ul>
+      <li *ngFor="let servicio of citaSeleccionada.servicios" class="servicio-item-blanco">
+        {{ servicio.nombre }} - ${{ servicio.precio }}
+      </li>
+    </ul>    
+    <p class="text-success"><strong>Total a pagar:</strong> ${{ calcularTotalServicios(citaSeleccionada.servicios) }}</p>
+  </div>
+
+  <div class="boton-centrado">
+    <button
+      *ngIf="citaSeleccionada.estado === 'visita'; else registrarMascota"
+      (click)="redirigirARegistroPlan(citaSeleccionada)"
+      class="btn-registrar">
+      Registrar Plan
+    </button>
+    <ng-template #registrarMascota>
+      <button
+        (click)="redirigirARegistroMascotas(citaSeleccionada)"
+        class="btn-registrar">
+        Registrar Mascota
+      </button>
+    </ng-template>
+  </div>
+
+          </div>
+        </div>
+        <ng-template #noCitas>
+          <div class="no-citas">
+            <p>Aún no hay citas registradas para este día.</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

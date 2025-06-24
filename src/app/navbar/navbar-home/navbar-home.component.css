@@ -1,0 +1,349 @@
+.navbar-home {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  z-index: 1000;
+  
+  /* Fondo negro con transparencia */
+  background: rgba(63, 63, 63, 0.9); /* Fondo negro con transparencia */
+  
+  /* Redondeo de las esquinas de la barra */
+  border-bottom-left-radius: 50% 20px;
+  border-bottom-right-radius: 50% 20px;
+  
+  /* Sombras para darle profundidad */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Cuando el usuario hace scroll, se achica la barra */
+.navbar-home.scrolled {
+  height: 60px;
+  background: rgba(0, 0, 0, 0.9); /* Fondo más oscuro al hacer scroll */
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Ocultar la navbar cuando el usuario baja */
+.navbar-home.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Mostrar la navbar cuando el usuario sube o está en la parte superior */
+.navbar-home.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Espaciado para evitar superposición */
+.content {
+  margin-top: 100px; /* Espacio igual a la altura de la navbar */
+}
+.indicator {
+  display: block;
+  width: 30px; /* Ajusta el tamaño */
+  height: 30px;
+  margin: 0 auto;
+  position: absolute;
+  bottom: -15px; /* Aumenta el valor negativo para bajarla más */
+  left: 50%;
+  transform: translateX(-50%);
+  
+  background-image: url('../../assets/3.png'); /* Ruta correcta */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+/* Logo desde el CSS */
+/* Logo desde el CSS con enlace */
+.logo-link {
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: url('../../assets/PHOTO-2024-10-21-19-10-20-removebg-preview.png') no-repeat center center;
+  background-size: contain;
+  position: absolute;
+  left: 20px;
+  z-index: 1001;
+}
+
+
+/* Animación para ocultar la barra */
+.navbar-home.hidden {
+  transform: translateY(-150%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Animación para mostrar la barra */
+.navbar-home.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Contenedor de navegación */
+.navbar-home nav {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* Botones de la barra */
+.nav-button {
+  margin: 0 15px;
+  padding: 10px 20px;
+  background-color: #5a5a5a;
+  border: none;
+  border-radius: 5px;
+  color: #F2F2F2;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+
+}
+
+.nav-button:hover {
+  background-color: #cfb1e4;
+  color: #737373;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón de menú (para móviles) */
+.menu-toggle {
+  display: none; /* Por defecto, no se muestra en pantallas grandes */
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: #F2F2F2;
+  cursor: pointer;
+  z-index: 10; /* Asegúrate de que esté por encima del menú */
+}
+
+/* Menú en pantallas móviles */
+@media (max-width: 768px) {
+  .navbar-home {
+    height: 70px;
+    padding: 15px 40px;
+    background-size: 70px 70px;
+    justify-content: space-between; /* Alinear el logo a la izquierda y el menú a la derecha */
+  }
+
+  /* Logo en móviles */
+  .navbar-home::before {
+    width: 60px; /* Ajustar tamaño del logo */
+    height: 60px; /* Ajustar tamaño del logo */
+    left: 10px; /* Asegurar que quede en el borde izquierdo */
+  }
+
+  /* Mostrar el botón de menú solo en pantallas pequeñas */
+  .menu-toggle {
+    display: block; /* Mostrar el botón en pantallas pequeñas */
+  }
+
+  /* Contenedor del menú */
+  .navbar-home nav div {
+    display: block;
+    position: absolute;
+    background-color: transparent;
+    width: 100%;  /* Asegura que el menú tenga el ancho adecuado */
+    top: 100%;    /* Asegura que se despliegue justo debajo */
+    left: 0;      /* Alinea el menú con el borde izquierdo */
+    z-index: 1;   /* Mantén el menú por encima de otros elementos */
+    padding-top: 10px; /* Ajusta el espacio entre el botón y el menú */
+  }
+
+  /* Botones del menú */
+  .navbar-home nav div .nav-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+  }
+}
+.breadcrumbs {
+  position: fixed;
+  top: 100px; /* Justo debajo de la navbar */
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-bottom: 2px solid #ccc;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Ocultar las migas de pan cuando el usuario baja */
+.breadcrumbs.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Mostrar las migas de pan cuando el usuario sube */
+.breadcrumbs.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+
+.breadcrumbs a {
+  color: #5a5a5a;
+  text-decoration: none;
+  margin: 0 8px;
+  transition: color 0.3s;
+}
+
+.breadcrumbs a:hover {
+  color: #cfb1e4;
+}
+
+.breadcrumbs span {
+  color: #ffffff;
+  margin: 0 5px;
+}
+/* ------------------- BUSCADOR FLOTANTE ------------------- */
+.floating-search {
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  top: 140px; /* Ajusta la distancia desde la parte superior de la página */
+  left: 20px;
+  transition: all 0.3s ease;
+}
+
+/* Estilo para el icono del buscador */
+.icono-lupa {
+  background-color: #cfb1e4;
+  border: none;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.icono-lupa:hover {
+  transform: scale(1.1);
+  background-color: #a77dce;
+}
+
+/* Input y botón del buscador */
+.buscador-navbar.animado {
+  display: flex;
+  align-items: center;
+  background-color: #807a7a;
+  border-radius: 8px;
+  padding: 6px;
+  margin-left: 12px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.buscador-navbar input {
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  width: 160px;
+  background-color: #eee;
+}
+
+.buscar-btn {
+  background-color: #cfb1e4;
+  border: none;
+  padding: 6px 12px;
+  margin-left: 6px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Estilo para el mensaje de error */
+.mensaje-busqueda {
+  position: fixed;
+  top: 120px;
+  right: 20px;
+  background: #a77dce;
+  color: white;
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  z-index: 10001;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respuesta para pantallas pequeñas */
+@media (max-width: 768px) {
+  .floating-search {
+    flex-direction: column;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .buscador-navbar.animado {
+    flex-direction: column;
+    width: 90vw;
+    max-width: 260px;
+    margin-left: 0;
+    margin-top: 10px;
+    gap: 6px;
+  }
+
+  .buscador-navbar input,
+  .buscar-btn {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .mensaje-busqueda {
+    bottom: 90px;
+    top: auto;
+    right: 50%;
+    transform: translateX(50%);
+    text-align: center;
+    max-width: 90%;
+  }
+}

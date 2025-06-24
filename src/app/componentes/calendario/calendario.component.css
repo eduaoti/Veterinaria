@@ -1,0 +1,320 @@
+/* Fondo de pantalla completa */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: auto;
+    background-image: url('../../assets/negro.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Contenedor principal del calendario */
+  .calendar {
+    width: 90%;
+    max-width: 800px;
+    margin: 150px auto 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Encabezado */
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .calendar-header button {
+    background-color: #d1d1d1;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .calendar-header button:hover {
+    background-color: #c1a4d6;
+    transform: scale(1.1);
+    border-color: #000000;
+  }
+  
+  .month-year {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  /* Días y nombres */
+  .day-names, .days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .days div {
+    padding: 20px;
+    cursor: pointer;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .days div:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .days .weekend {
+    background-color: #d2d0d0;
+    color: #000000;
+    cursor: not-allowed;
+  }
+  
+  .current {
+    background-color: #b1cdff;
+    color: white;
+    border-color: #000000;
+    font-weight: bold;
+    position: relative;
+  }
+  
+  .paw-icon {
+    color: #000000;
+    font-size: 1.2em;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  
+  .has-appointments {
+    background-color: #c1a4d6;
+    border: 1px solid #ffffff;
+    color: #000000;
+  }
+  
+  /* Citas */
+  .appointments {
+    margin-top: 20px;
+  }
+  
+  .appointments h3 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+  
+  .appointments h4 {
+    color: #cfb1e4;
+  }
+  
+  .appointments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .appointment-card {
+    border: 1px solid #000000;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .appointment-card strong {
+    color: #333;
+  }
+  
+  /* Horarios */
+  .horarios {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .hora {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .hora.has-appointment {
+    background-color: #6df0fa;
+  }
+  
+  .hora:hover {
+    background-color: #e3f2fd;
+  }
+  
+  .hora.atendida {
+    background-color: #d1d1d1;
+    color: #666;
+    border-color: #000000;
+  }
+  
+  .hora.visita {
+    background-color: yellow;
+    color: black;
+    border: 1px solid #ccc;
+  }
+  
+  /* Detalles de citas */
+  .cita-detalle {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    background: linear-gradient(to right, #000000, #adacac);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-in-out;
+    font-size: 1.1em;
+  }
+  
+  .cita-detalle p {
+    margin: 10px 0;
+    color: #ffffff;
+  }
+  
+  /* Animación */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Botón registrar */
+  .boton-centrado {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .btn-registrar {
+    background-color: #70706d;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn-registrar:hover {
+    background-color: #e7d8f2;
+    transform: scale(1.05);
+  }
+  
+  .btn-registrar:active {
+    transform: scale(0.98);
+  }
+  
+  /* Sin citas */
+  .no-citas {
+    background-image: url('../../assets/Perrito dormido.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .no-citas p {
+    font-size: 1.5em;
+    color: #000000;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #ffffff;
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+  
+  /* Icono de mes */
+  .month-icon {
+    margin-right: 8px;
+    font-size: 1.5em;
+    vertical-align: middle;
+  }
+  
+  /* Texto de servicios */
+  .servicio-item-blanco {
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 4px #000;
+  }
+  
+  /* Estilos por mes */
+  .enero { font-family: 'Times New Roman', serif; color: #1e90ff; }
+  .febrero { font-family: 'Brush Script MT', cursive; color: #ff69b4; }
+  .marzo { font-family: 'Arial', sans-serif; color: #32cd32; }
+  .abril { font-family: 'Comic Sans MS', cursive; color: #ff6347; }
+  .mayo { font-family: 'Georgia', serif; color: #ff4500; }
+  .junio { font-family: 'Verdana', sans-serif; color: #ffa500; }
+  .julio { font-family: 'Impact', sans-serif; color: #ff0000; }
+  .agosto { font-family: 'Courier New', monospace; color: #20b2aa; }
+  .septiembre { font-family: 'Trebuchet MS', sans-serif; color: #006400; }
+  .octubre { font-family: 'Creepster', cursive; color: #ff4500; }
+  .noviembre { font-family: 'Roboto', sans-serif; color: #f6761a; }
+  .diciembre { font-family: 'Pacifico', cursive; color: #ff0000; }
+  
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    .calendar {
+      padding: 10px;
+      width: 95%;
+    }
+  
+    .calendar-header {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .calendar-header button {
+      width: 100%;
+    }
+  
+    .month-year {
+      font-size: 1.2em;
+    }
+  
+    .day-names, .days {
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+    }
+  
+    .days div {
+      padding: 14px;
+    }
+  
+    .horarios {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+  }
+  

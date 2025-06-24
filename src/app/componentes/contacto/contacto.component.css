@@ -1,0 +1,373 @@
+/* Sección de contacto */
+.contact-section {
+    background-color: #212020;
+    color: #ede0e0;
+    text-align: center;
+    padding: 50px 20px;
+    font-family: 'Lato', sans-serif;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #cfb1e4;
+    text-transform: uppercase;
+    border-bottom: 3px solid #8c65a8;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Información de contacto con animaciones */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.info-item {
+    background: rgba(116, 102, 102, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: slideIn 1.5s ease-in-out forwards;
+}
+
+/* Diferentes retrasos en la animación para cada ítem */
+.info-item:nth-child(1) {
+    animation-delay: 0.3s;
+}
+.info-item:nth-child(2) {
+    animation-delay: 0.6s;
+}
+.info-item:nth-child(3) {
+    animation-delay: 0.9s;
+}
+
+/* Animación para los íconos */
+.info-item i {
+    font-size: 2rem;
+    color: #cfb1e4;
+    margin-bottom: 10px;
+    transform: scale(0.8);
+    animation: scaleIn 1s ease-in-out forwards;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Estilos del Pie de Página */
+.footer {
+    background-color: #c7b1d6;
+    color: rgb(154, 15, 135);
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 50px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Logo del pie de página */
+  .footer-logo h2 {
+    font-size: 2rem;
+    color: #0b0b0a;
+    margin-bottom: 5px;
+  }
+  
+  /* Enlaces del pie de página */
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+  }
+  
+  .footer-links a {
+    color: #820f80;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+    transition: color 0.3s;
+  }
+  
+  .footer-links a:hover {
+    color: #100f0e;
+  }
+  
+  /* Enlace de Instagram */
+  .instagram-link {
+    font-size: 1.5rem;
+    color: #c32aa3;
+    transition: color 0.3s;
+  }
+  
+  .instagram-link:hover {
+    color: #e1306c;
+  }
+  
+  /* Contacto en el pie de página */
+  .footer-contact h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #252422;
+  }
+  
+  .footer-contact p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+  }
+  
+  /* Enlace de correo electrónico */
+  .email-link {
+    color: white !important;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .email-link:hover {
+    color: #ccc !important;  
+    text-decoration: underline;
+  }
+  
+  /* Animaciones */
+  @keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+  }
+  
+  /* Aplicando animaciones */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+  }
+  
+  .slide-in {
+    opacity: 0;
+    animation: slideIn 1.5s ease-in-out forwards;
+  }
+  
+  .scale-in {
+    opacity: 0;
+    animation: scaleIn 1.5s ease-in-out forwards;
+  }
+  
+  /* Agregar animación al pie de página */
+  .footer {
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  
+  /* Responsividad */
+  @media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+  
+    .footer-logo h2 {
+        font-size: 1.8rem;
+    }
+  
+    .footer-contact h3 {
+        font-size: 1.3rem;
+    }
+  
+    .footer-contact p {
+        font-size: 1.1rem;
+    }
+  
+    .info-container {
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .info-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+  }
+  /* Redes Sociales - Nosotros */
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 30px 0;
+  }
+  
+  .social-icons .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+  }
+  
+  .social-icons .icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Redes sociales en el pie de página */
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 20px 0;
+    background-color: #7b5b87; /* Color similar al pie de página */
+  }
+  
+  .footer-social .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    color: white;
+    font-size: 24px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+  }
+  
+  .footer-social .icon:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Colores de las redes */
+  .icon.facebook {
+    background-color: #1877F2;
+  }
+  
+  .icon.instagram {
+    background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+  }
+  
+  .icon.x {
+    background-color: #000;
+  }
+  .scroll-btn {
+    position: fixed;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #cfb1e4;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+  
+  .scroll-top {
+    bottom: 80px;
+  }
+  
+  .scroll-bottom {
+    bottom: 20px;
+  }
+  
+  .scroll-btn.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .scroll-btn:hover {
+    background-color: #8c65a8;
+  }

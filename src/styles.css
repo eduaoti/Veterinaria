@@ -1,0 +1,23 @@
+@import 'primeflex/primeflex.css';
+@import '../node_modules/primeicons/primeicons.css'; /* Ajuste de ruta */
+@import '../node_modules/primeng/resources/themes/saga-blue/theme.css'; /* Ajuste de ruta */
+@import '../node_modules/primeng/resources/primeng.min.css'; /* Ajuste de ruta */
+@import '../node_modules/angular-calendar/css/angular-calendar.css'; /* Ajuste de ruta */
+
+/* Aplica un fondo gris oscuro a toda la aplicación */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #424242 !important; /* Gris oscuro */
+  color: white; /* Color del texto en blanco para mejor contraste */
+}
+
+/* Si usas un contenedor principal, también agrégale el fondo */
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #424242;
+}

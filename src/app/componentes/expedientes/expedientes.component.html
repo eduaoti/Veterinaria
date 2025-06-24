@@ -1,0 +1,115 @@
+<div class="container my-4">
+  <h2 class="main-title text-center mb-4">Expedientes Atendidos</h2>
+
+  <!-- Filtros -->
+  <div class="filters d-flex flex-column flex-md-row justify-content-center gap-3 mb-4">
+    <div>
+      <label for="filtroNombreDueno" class="form-label">Buscar por Nombre del Dueño:</label>
+      <input 
+        type="text" 
+        id="filtroNombreDueno" 
+        class="form-control rounded-input" 
+        [(ngModel)]="filtroNombreDueno" 
+        (ngModelChange)="aplicarFiltro()" 
+        placeholder="Escribe el nombre del dueño" 
+      />
+    </div>
+
+    <div>
+      <label for="filtroNombreMascota" class="form-label">Buscar por Nombre de la Mascota:</label>
+      <input 
+        type="text" 
+        id="filtroNombreMascota" 
+        class="form-control rounded-input" 
+        [(ngModel)]="filtroNombreMascota" 
+        (ngModelChange)="aplicarFiltro()" 
+        placeholder="Escribe el nombre de la mascota" 
+      />
+    </div>
+  </div>
+
+  <!-- Cargando -->
+  <div *ngIf="loading" class="alert alert-info text-center">
+    <div class="spinner-border text-secondary me-2" role="status">
+      <span class="visually-hidden">Cargando...</span>
+    </div>
+    <span>Cargando citas atendidas...</span>
+  </div>
+
+  <!-- Citas Atendidas -->
+  <div *ngIf="!loading && citasFiltradas.length > 0; else noCitasAtendidas">
+    <div class="row g-3">
+      <div class="col-md-4" *ngFor="let cita of citasFiltradas">
+        <div class="card rounded-card shadow-sm border-0">
+          <div class="card-body">
+            <h5 class="card-title text-dark">{{ cita.cliente }}</h5>
+            <p class="card-text"><strong>Correo del Dueño:</strong> {{ cita.correo }}</p>
+            <p class="card-text"><strong>Fecha y Hora:</strong> {{ cita.fechaHora | date:'short' }}</p>
+            <p class="card-text"><strong>Comentario:</strong> {{ cita.comentario }}</p>
+            <p *ngIf="cita.mascota" class="card-text">
+              <strong>Mascota:</strong> {{ cita.mascota.nombreMascota }} <br>
+              <strong>Especie:</strong> {{ cita.mascota.especie }} <br>
+              <strong>Raza:</strong> {{ cita.mascota.raza }} <br>
+            </p>
+            <button class="btn btn-rounded w-100 mt-3" (click)="openExpedienteModal(cita)">Ver expediente</button>
+            <button 
+              class="btn btn-primary w-100 mt-3"
+              (click)="irAPlanes(cita.mascota, cita.correo, cita.cliente)"
+              *ngIf="cita.mascota">
+              Agregar Plan
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noCitasAtendidas>
+    <div class="alert alert-warning text-center">
+      <p>No tienes citas atendidas.</p>
+    </div>
+  </ng-template>
+</div>
+
+<!-- Modal de Expediente -->
+<div class="modal fade" id="expedienteModal" tabindex="-1" aria-labelledby="expedienteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content rounded-card">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="expedienteModalLabel">Expediente de {{ selectedMascota?.nombreMascota }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><strong>Especie:</strong> {{ selectedMascota?.especie }}</p>
+        <p><strong>Raza:</strong> {{ selectedMascota?.raza }}</p>
+        <p><strong>Edad:</strong> {{ selectedMascota?.edad }} años</p>
+        <p><strong>Sexo:</strong> {{ selectedMascota?.sexo }}</p>
+        <p><strong>Peso:</strong> {{ selectedMascota?.pesoKg }} kg</p>
+        <p><strong>Fecha de Ingreso:</strong> {{ selectedMascota?.fechaIngreso | date: 'd \'de\' MMMM \'de\' y, HH:mm' : 'es' }}</p>
+        <p><strong>Fecha de Nacimiento:</strong> {{ selectedMascota?.fechaNacimiento | date: "d 'de' MMMM 'de' y" : 'es' }}</p>
+        <p *ngIf="selectedMascota?.alergias?.existe"><strong>Alergias:</strong> {{ selectedMascota?.alergias.observaciones }}</p>
+        <p><strong>Alimentación:</strong> {{ selectedMascota?.alimentacion.estado }}</p>
+        <p *ngIf="selectedMascota?.alimentacion?.observaciones"><strong>Comentarios de Alimentación:</strong> {{ selectedMascota.alimentacion.observaciones }}</p>
+        <p><strong>Veterinario:</strong> {{ selectedMascota?.veterinario.nombre }}</p>
+
+        <!-- ✅ Servicios Agendados -->
+        <div *ngIf="selectedMascota?.servicios?.length > 0">
+          <p><strong>Servicios Agendados:</strong></p>
+          <ul>
+            <li *ngFor="let servicio of selectedMascota.servicios">
+              <span><strong>Nombre:</strong> {{ servicio.nombre }}</span><br>
+              <span><strong>Precio:</strong> ${{ servicio.precio }}</span>
+            </li>
+          </ul>
+          <p class="fw-bold text-end">Total a pagar: ${{ totalServicios }}</p>
+        </div>
+
+        <!-- ✅ Foto -->
+        <img *ngIf="selectedMascota?.fotoUrl" [src]="selectedMascota.fotoUrl" alt="Foto de {{ selectedMascota?.nombreMascota }}" class="img-fluid mt-3 rounded shadow-sm"/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-rounded" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

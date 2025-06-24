@@ -1,0 +1,125 @@
+.container {
+  max-width: 500px;
+  margin: 150px auto 0 auto; /* Baja bastante el contenido */
+  padding: 20px;
+  background-color: #fff; /* Opcional */
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1; /* Asegura que no se esconda debajo de migas/nav */
+}
+
+.date-picker-container {
+  margin-top: 10px; /* Espaciado superior para el contenedor del selector de fecha */
+}
+
+p-calendar {
+  width: 100%; /* Asegurarse de que el selector ocupe todo el ancho disponible */
+  padding: 5px; /* Espaciado interno más reducido */
+}
+
+input[type="time"] {
+  width: 100%; /* Asegurarse de que el campo de tiempo ocupe todo el ancho disponible */
+  padding: 5px; /* Espaciado interno más reducido para el input de tiempo */
+}
+
+/* Estilos para los mensajes de error */
+.error-message {
+  font-size: 0.85rem; /* Tamaño de fuente ligeramente más pequeño */
+  max-height: 40px; /* Altura máxima para el mensaje de error */
+  overflow: hidden; /* Oculta cualquier desbordamiento */
+  transition: max-height 0.3s ease; /* Animación para el cambio de altura */
+}
+
+/* Adicional: Asegúrate de que los estilos de flexbox se apliquen correctamente */
+.d-flex {
+  display: flex;
+}
+
+.align-items-end {
+  align-items: flex-end; /* Alinea los elementos al final del eje vertical */
+}
+
+.flex-grow-1 {
+  flex-grow: 1; /* Permite que el contenedor del calendario ocupe todo el espacio disponible */
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0; /* No permite que el contenedor de la hora se reduzca */
+}
+
+.form-control {
+  font-size: 0.9rem; /* Tamaño de fuente ligeramente más pequeño */
+}
+.text-danger {
+  color: red;
+}
+
+.text-primary {
+  color: blue;
+}
+.agendar-cita-title {
+  color:  #cfb1e4; 
+}
+/* Contenedor del carrito */
+.servicios-carrito {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+/* Título del carrito */
+.servicios-carrito h5 {
+  font-weight: bold;
+  color: #3f3f3f;
+  margin-bottom: 15px;
+}
+
+/* Lista de servicios agregados */
+.servicios-carrito ul.list-group {
+  border: none;
+  padding-left: 0;
+}
+
+.servicios-carrito .list-group-item {
+  background-color: #fff;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+/* Botón quitar */
+.servicios-carrito .btn-danger {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+/* Total */
+.total-servicios {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #5e3f99;
+  text-align: right;
+  margin-top: 10px;
+  border-top: 1px dashed #ccc;
+  padding-top: 10px;
+}
+
+/* Selector y botón agregar */
+.input-group select {
+  border-radius: 8px 0 0 8px;
+}
+
+.input-group .btn-success {
+  border-radius: 0 8px 8px 0;
+  background-color: #5e3f99;
+  border: none;
+}
+
+.input-group .btn-success:hover {
+  background-color: #7a5fb2;
+}

@@ -1,0 +1,12 @@
+<div class="error-container">
+    <h1 class="error-title">Oops! Página no encontrada</h1>
+    <p class="error-message">Atrapa al gato para poder regresar</p>
+  
+    <div *ngFor="let img of images" 
+         class="error-image" 
+         [ngClass]="img.animationClass"
+         [style.backgroundImage]="'url(' + img.imageUrl + ')'"
+         (click)="checkImage(img.isCat)">
+    </div>
+  </div>
+  

@@ -1,0 +1,43 @@
+.dialog-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .dialog-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .dialog-message {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .dialog-actions {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .logout-btn {
+    background-color: #808080; /* Color gris */
+    color: white !important; /* Asegura que el texto sea blanco */
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    text-transform: none; /* Evita transformaciones en el texto */
+  }
+  
+  .logout-btn:hover {
+    background-color: #696969; /* Gris más oscuro en hover */
+    transform: scale(1.05); /* Animación de crecimiento */
+  }
+  

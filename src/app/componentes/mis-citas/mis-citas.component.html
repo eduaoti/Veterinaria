@@ -1,0 +1,166 @@
+<div class="container">
+  <h2 class="main-title">Mis Citas</h2>
+
+  <div *ngIf="loading" class="alert alert-info" role="alert">
+    <div class="loading-container waiting">
+      <p>En espera de atención...</p>
+    </div>
+  </div>
+
+  <div class="tabs-container">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link progress-tab" [class.active]="tab === 'en-espera'" (click)="selectTab('en-espera')">En Espera</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link progress-tab" [class.active]="tab === 'en-proceso'" (click)="selectTab('en-proceso')">En Proceso</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link progress-tab" [class.active]="tab === 'atendidas'" (click)="selectTab('atendidas')">Atendidas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link progress-tab" [class.active]="tab === 'visitas'" (click)="selectTab('visitas')">Planes de cuidado</a>
+      </li>
+    </ul>
+    <div class="progress-bar-background">
+      <div class="progress-bar-fill" [ngClass]="{'step-1': tab === 'en-espera', 'step-2': tab === 'en-proceso', 'step-3': tab === 'atendidas', 'step-4': tab === 'visitas'}"></div>
+    </div>
+  </div>
+
+  <!-- En Espera -->
+  <div *ngIf="tab === 'en-espera'">
+    <div *ngIf="citasEnEspera.length > 0; else noCitasEnEspera">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let cita of citasEnEspera">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fa-solid fa-person"></i> {{ cita.cliente }}</h5>
+              <p class="card-text"><strong>Fecha y Hora:</strong> {{ cita.fechaHora | date:'short' }}</p>
+              <p class="card-text"><strong>Comentario:</strong> {{ cita.comentario }}</p>
+
+              <!-- Servicios -->
+              <div *ngIf="cita.servicios?.length">
+                <p><strong>Servicios:</strong></p>
+                <ul>
+                  <li *ngFor="let servicio of cita.servicios">
+                    {{ servicio.nombre }} - ${{ servicio.precio }}
+                  </li>
+                </ul>
+                <p class="text-success"><strong>Total a pagar:</strong> ${{ calcularTotalServicios(cita.servicios) }}</p>
+              </div>
+
+              <div class="button-group">
+                <button class="btn btn-warning" (click)="editarCita(cita._id)"><i class="fas fa-edit"></i> Editar</button>
+                <button class="btn btn-danger" (click)="eliminarCita(cita._id)"><i class="fas fa-trash-alt"></i> Eliminar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noCitasEnEspera>
+      <div class="alert alert-info" role="alert">
+        <p>No tienes citas en espera de atención.</p>
+        <button class="btn btn-primary" (click)="agendarCita()">Agendar Cita</button>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- En Proceso -->
+  <div *ngIf="tab === 'en-proceso'">
+    <div *ngIf="citasEnProceso.length > 0; else noCitasEnProceso">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let cita of citasEnProceso">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">{{ cita.cliente }}</h5>
+              <p class="card-text"><strong>Fecha y Hora:</strong> {{ cita.fechaHora | date:'short' }}</p>
+              <p class="card-text"><strong>Comentario:</strong> {{ cita.comentario }}</p>
+
+              <!-- Servicios -->
+              <div *ngIf="cita.servicios?.length">
+                <p><strong>Servicios:</strong></p>
+                <ul>
+                  <li *ngFor="let servicio of cita.servicios">
+                    {{ servicio.nombre }} - ${{ servicio.precio }}
+                  </li>
+                </ul>
+                <p class="text-success"><strong>Total a pagar:</strong> ${{ calcularTotalServicios(cita.servicios) }}</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noCitasEnProceso>
+      <div class="alert alert-info" role="alert">
+        <p>No tienes citas en proceso de atención.</p>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- Atendidas -->
+  <div *ngIf="tab === 'atendidas'">
+    <div *ngIf="citasAtendidas.length > 0; else noCitasAtendidas">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let cita of citasAtendidas">
+          <div class="card mb-3">
+            <div class="card-body">
+              <h5 class="card-title">{{ cita.cliente }}</h5>
+              <p class="card-text"><strong>Fecha y Hora:</strong> {{ cita.fechaHora | date:'short' }}</p>
+              <p class="card-text"><strong>Comentario:</strong> {{ cita.comentario }}</p>
+              <p *ngIf="cita.mascota" class="card-text"><strong>Mascota:</strong> {{ cita.mascota }}</p>
+
+              <!-- Servicios -->
+              <div *ngIf="cita.servicios?.length">
+                <p><strong>Servicios:</strong></p>
+                <ul>
+                  <li *ngFor="let servicio of cita.servicios">
+                    {{ servicio.nombre }} - ${{ servicio.precio }}
+                  </li>
+                </ul>
+                <p class="text-success"><strong>Total pagado:</strong> ${{ calcularTotalServicios(cita.servicios) }}</p>
+              </div>
+
+              <button class="btn btn-secondary" (click)="openExpedienteModal(cita)">Ver expediente</button>
+              <button class="btn btn-danger" (click)="eliminarCita(cita._id)">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noCitasAtendidas>
+      <div class="alert alert-info" role="alert">
+        <p>No tienes citas atendidas.</p>
+      </div>
+    </ng-template>
+  </div>
+
+  <!-- Visitas (planes de cuidado) -->
+  <div *ngIf="tab === 'visitas'">
+    <div *ngIf="planesCuidado.length > 0; else noCitasVisitas">
+      <div *ngFor="let grupo of agruparPlanesPorMascota()">
+        <h3 class="mascota-title">Mascota: {{ grupo.nombreMascota }}</h3>
+        <div *ngFor="let plan of grupo.planes">
+          <ul>
+            <li><strong>Dieta:</strong> {{ plan.dieta }}</li>
+            <li><strong>Ejercicio:</strong> {{ plan.ejercicio }}</li>
+          </ul>
+          <p><strong>Visitas Programadas:</strong></p>
+          <ul>
+            <li *ngFor="let visita of plan.visitas">
+              {{ visita.fecha | date:'short' }} - {{ visita.descripcion }}
+            </li>
+          </ul>
+        </div>
+        <hr />
+      </div>
+    </div>
+    <ng-template #noCitasVisitas>
+      <div class="alert alert-info" role="alert">
+        <p>No tienes planes de cuidado asignados.</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

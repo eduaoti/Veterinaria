@@ -1,0 +1,158 @@
+
+.container {
+  background: linear-gradient(to right, #424141, #524e4e);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  margin-top: 170px; /* 🟣 Espacio debajo de la navbar */
+
+}
+
+h2 {
+  text-align: center;
+  color: #cfb1e4;
+  margin-bottom: 30px;
+}
+
+label {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  background-color: #2e2e2e;
+  border: 1px solid #555;
+  color: #fff;
+  border-radius: 6px;
+  transition: border 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #cfb1e4;
+  outline: none;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #008b8b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #007bff;
+}
+
+button:disabled {
+  background-color: #aaa;
+}
+
+.btn-outline-danger,
+.btn-outline-info,
+.btn-outline-primary {
+  border: 1px solid;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-danger {
+  border-color: #dc3545;
+  color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-outline-info {
+  border-color: #17a2b8;
+  color: #17a2b8;
+}
+
+.btn-outline-info:hover {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.list-group-item {
+  background-color: #3b3b3b;
+  color: white;
+  border-color: #555;
+}
+
+.list-group-item button {
+  background-color: transparent;
+  border: 1px solid #dc3545;
+  color: #dc3545;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.list-group-item button:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.bg-black {
+  background-color: #1c1c1c !important;
+}
+
+.bg-secondary {
+  background-color: #4d4d4d !important;
+}
+
+.bg-opacity-25 {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.text-muted {
+  color: #cccccc !important;
+}
+
+.text-light {
+  color: #cfb1e4 !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.rounded-3 {
+  border-radius: 1rem !important;
+}
+
+.rounded-4 {
+  border-radius: 1.5rem !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3) !important;
+}
+
+.border-secondary {
+  border-color: #777 !important;
+}

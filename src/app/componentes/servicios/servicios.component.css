@@ -1,0 +1,421 @@
+/* Estilos generales */
+.full-width-section {
+  background-color: #212020;
+  color: #ede0e0;
+  text-align: center;
+  padding: 50px 20px;
+  font-family: 'Lato', sans-serif;
+  overflow: hidden;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #cfb1e4;
+  text-transform: uppercase;
+  border-bottom: 3px solid #8c65a8;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-top: 40px;
+  color: #cfb1e4;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Contenedor de información */
+.info-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* Tarjetas de información */
+.info-card {
+  background-color: rgba(116, 102, 102, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Íconos y nombres siempre visibles */
+.info-card i,
+.info-card h3 {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Descripción oculta por defecto */
+.service-detail {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+  font-size: 1rem;
+  color: #ede0e0;
+  margin-top: 10px;
+}
+
+/* Mostrar descripción al pasar el cursor */
+.info-card:hover .service-detail {
+  opacity: 1;
+  height: auto;
+}
+
+/* Iconos dentro de la tarjeta */
+.service-image {
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 10px auto;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.info-card:hover .service-image {
+  opacity: 1;
+}
+
+/* Asignar iconos de animales a cada tarjeta */
+.info-card:nth-child(1) .service-image {
+  background-image: url('https://cdn-icons-png.flaticon.com/128/1998/1998627.png'); 
+}
+.info-card:nth-child(2) .service-image {
+  background-image: url('https://cdn-icons-png.flaticon.com/128/5312/5312801.png'); 
+}
+.info-card:nth-child(3) .service-image {
+  background-image: url('https://cdn-icons-png.flaticon.com/128/1998/1998592.png'); 
+}
+.info-card:nth-child(4) .service-image {
+  background-image: url('https://cdn-icons-png.flaticon.com/128/1959/1959988.png'); /* Hámster */
+}
+.info-card:nth-child(5) .service-image {
+  background-image: url('https://cdn-icons-png.flaticon.com/128/3069/3069186.png'); /* Pájaro */
+}
+
+/* Botón flotante para volver arriba */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #cfb1e4;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Estilos del Pie de Página */
+.footer {
+background-color: #c7b1d6;
+color: rgb(154, 15, 135);
+padding: 40px 20px;
+text-align: center;
+margin-top: 50px;
+animation: fadeIn 2s ease-in-out;
+}
+
+.footer-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+align-items: center;
+max-width: 1200px;
+margin: 0 auto;
+}
+
+/* Logo del pie de página */
+.footer-logo h2 {
+font-size: 2rem;
+color: #0b0b0a;
+margin-bottom: 5px;
+}
+
+/* Enlaces del pie de página */
+.footer-links {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 15px;
+margin: 10px 0;
+}
+
+.footer-links a {
+color: #820f80;
+text-decoration: none;
+font-size: 1.2rem;
+display: block;
+transition: color 0.3s;
+}
+
+.footer-links a:hover {
+color: #100f0e;
+}
+
+/* Enlace de Instagram */
+.instagram-link {
+font-size: 1.5rem;
+color: #c32aa3;
+transition: color 0.3s;
+}
+
+.instagram-link:hover {
+color: #e1306c;
+}
+
+/* Contacto en el pie de página */
+.footer-contact h3 {
+font-size: 1.5rem;
+margin-bottom: 10px;
+color: #252422;
+}
+
+.footer-contact p {
+font-size: 1.2rem;
+margin: 5px 0;
+}
+
+/* Enlace de correo electrónico */
+.email-link {
+color: white !important;
+text-decoration: none;
+transition: color 0.3s;
+}
+
+.email-link:hover {
+color: #ccc !important;  
+text-decoration: underline;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+from {
+    opacity: 0;
+    transform: translateY(20px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+@keyframes slideIn {
+from {
+    opacity: 0;
+    transform: translateX(-50px);
+}
+to {
+    opacity: 1;
+    transform: translateX(0);
+}
+}
+
+@keyframes scaleIn {
+from {
+    opacity: 0;
+    transform: scale(0.8);
+}
+to {
+    opacity: 1;
+    transform: scale(1);
+}
+}
+
+/* Aplicando animaciones */
+.fade-in {
+opacity: 0;
+animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.slide-in {
+opacity: 0;
+animation: slideIn 1.5s ease-in-out forwards;
+}
+
+.scale-in {
+opacity: 0;
+animation: scaleIn 1.5s ease-in-out forwards;
+}
+
+/* Agregar animación al pie de página */
+.footer {
+animation: fadeIn 2s ease-in-out;
+}
+
+.scroll-btn {
+position: fixed;
+right: 20px;
+width: 50px;
+height: 50px;
+background-color: #cfb1e4;
+color: white;
+border: none;
+border-radius: 50%;
+font-size: 20px;
+text-align: center;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+opacity: 0;
+visibility: hidden;
+transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-top {
+bottom: 80px; /* Ajusta la distancia respecto al botón de abajo */
+}
+
+.scroll-bottom {
+bottom: 20px;
+}
+
+/* Hace que ambos botones sean visibles cuando el usuario hace scroll */
+.scroll-btn.show {
+opacity: 1;
+visibility: visible;
+}
+
+/* Efecto hover para mejor apariencia */
+.scroll-btn:hover {
+background-color: #8c65a8;
+}
+
+/* Responsividad */
+@media screen and (max-width: 768px) {
+.footer-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-links {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-logo h2 {
+    font-size: 1.8rem;
+}
+
+.footer-contact h3 {
+    font-size: 1.3rem;
+}
+
+.footer-contact p {
+    font-size: 1.1rem;
+}
+
+.info-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-card {
+    width: 100%;
+    margin: 10px 0;
+}
+}
+/* Redes Sociales - Nosotros */
+.social-icons {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin: 30px 0;
+}
+
+.social-icons .icon {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 50px;
+height: 50px;
+border-radius: 10px;
+color: white;
+font-size: 24px;
+transition: transform 0.3s, box-shadow 0.3s;
+text-decoration: none;
+}
+
+.social-icons .icon:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Redes sociales en el pie de página */
+.footer-social {
+display: flex;
+justify-content: center;
+gap: 15px;
+margin-top: 20px;
+padding: 20px 0;
+background-color: #7b5b87; /* Color similar al pie de página */
+}
+
+.footer-social .icon {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 50px;
+height: 50px;
+border-radius: 10px;
+color: white;
+font-size: 24px;
+transition: transform 0.3s, box-shadow 0.3s;
+text-decoration: none;
+}
+
+.footer-social .icon:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Colores de las redes */
+.icon.facebook {
+background-color: #1877F2;
+}
+
+.icon.instagram {
+background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+}
+
+.icon.x {
+background-color: #000;
+}

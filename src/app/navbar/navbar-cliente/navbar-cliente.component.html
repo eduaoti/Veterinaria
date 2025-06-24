@@ -1,0 +1,36 @@
+<mat-toolbar class="navbar" [ngClass]="{ 'hidden': navbarHidden }">
+  <div class="navbar-content">
+    
+    <!-- Logo -->
+    <div class="logo-container">
+      <div class="logo"></div>
+    </div>
+
+    <!-- Nombre centrado -->
+    <span class="nombre-veterinaria">Luxepet Health</span>
+
+    <!-- Botones + perfil a la derecha -->
+    <div class="right-actions">
+      <div class="button-container" [ngClass]="{ 'menuVisible': menuVisible || isWideScreen }">
+        <button class="nav-button" (click)="agendarCita()">
+          <i class="fa fa-calendar"></i> Agendar Cita
+        </button>
+        <button class="nav-button" (click)="verMisCitas()">
+          <i class="fa fa-list"></i> Ver Mis Citas
+        </button>
+      </div>
+
+      <div class="profile-container" (click)="toggleProfileMenu()">
+        <button mat-icon-button class="profile-button">
+          <img *ngIf="fotoPerfil && fotoPerfil !== ''" [src]="fotoPerfil" class="profile-img" alt="Foto de perfil" />
+          <mat-icon *ngIf="!fotoPerfil || fotoPerfil === ''">account_circle</mat-icon>
+        </button>
+        <div class="profile-menu" *ngIf="profileMenuVisible">
+          <div (click)="verPerfil()">Perfil</div>
+          <div (click)="salir()">Salir</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</mat-toolbar>

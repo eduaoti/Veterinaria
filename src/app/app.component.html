@@ -1,0 +1,13 @@
+<!-- Mostrar solo la navbar del rol correspondiente -->
+<ng-container *ngIf="mostrarNavbar()" [ngSwitch]="rol">
+    <app-navbar-cliente *ngSwitchCase="'cliente'"></app-navbar-cliente>
+    <app-navbar-veterinario *ngSwitchCase="'veterinario'"></app-navbar-veterinario>
+    <app-navbar-home *ngSwitchDefault></app-navbar-home>
+  </ng-container>
+  
+  <!-- 🟢 Siempre mostrar migas de pan -->
+  <app-breadcrumbs></app-breadcrumbs>
+  
+  <!-- Contenido principal -->
+  <router-outlet></router-outlet>
+  

@@ -1,0 +1,34 @@
+<div class="container">
+    <h2 class="header">Mascotas Registradas</h2>
+  
+    <!-- Filtro de búsqueda -->
+    <div class="filters">
+      <input 
+        class="input"
+        type="text" 
+        placeholder="Buscar por nombre de mascota" 
+        [(ngModel)]="filtros.nombreMascota" 
+        (input)="buscarMascotas()"
+      />
+      <input 
+        class="input"
+        type="text" 
+        placeholder="Buscar por nombre del dueño" 
+        [(ngModel)]="filtros.nombreDueno" 
+        (input)="buscarMascotas()"
+      />
+    </div>
+    <ul class="mascotas-list">
+        <li class="mascota-item" *ngFor="let mascota of mascotas">
+          <div class="mascota-info">
+            <strong>Mascota:</strong> {{ mascota.nombreMascota }} <br />
+            <strong>Dueño:</strong>
+            <span *ngIf="mascota.personasRelacionadas?.length > 0; else noDueno">
+              {{ mascota.personasRelacionadas[0].nombre }}
+            </span>
+            <ng-template #noDueno>No registrado</ng-template>
+            <button (click)="verHistorial(mascota._id)">Ver Historial</button>
+          </div>
+        </li>
+      </ul>
+      

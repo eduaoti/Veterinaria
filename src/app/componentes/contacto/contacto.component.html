@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - LUXPET HEALTH</title>
+    <link rel="stylesheet" href="contacto.component.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <app-navbar-home></app-navbar-home>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="contact-section">
+        <div class="container">
+            <h2>Contáctanos</h2>
+            <p>Estamos aquí para ayudarte y responder cualquier pregunta.</p>
+            
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Dolores Hidalgo, Guanajuato, México.</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+52 473 000 0000</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=luxepethealth@gmail.com&su=Asunto%20de%20Prueba&body=Gracias%20por%20contactarnos.%20¿En%20qué%20podemos%20ayudarte?" 
+                           target="_blank" 
+                           rel="noopener noreferrer"
+                           class="email-link">
+                           <p>luxepethealth&#64;gmail.com</p>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>LUXPET HEALTH</h2>
+                <p>Clínica Veterinaria</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="/nosotros">Nosotros</a>
+                <a href="/servicios">Servicios</a>
+                <a href="/contacto">Contacto</a>
+                <a routerLink="/aviso-privacidad">Aviso de privacidad</a>
+
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Emergencias 24 hrs</h3>
+                <h3>Contacto</h3>
+                <p>Teléfono: +123 456 789</p>
+                <p>Email: luxepethealth&#64;gmail.com</p>
+                <p>Dolores Hidalgo, Guanajuato.</p>
+            </div>
+        </div>
+
+        <!-- Redes Sociales debajo de las secciones -->
+        <div class="footer-social">
+            <a href="https://www.facebook.com/luxpet" target="_blank" rel="noopener noreferrer" class="icon facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/luxpet_health" target="_blank" rel="noopener noreferrer" class="icon instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/luxpet_health" target="_blank" rel="noopener noreferrer" class="icon x">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+
+<!-- Botón de scroll hacia arriba -->
+<button class="scroll-btn scroll-top" id="scrollTopBtn" (click)="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  
+  <!-- Botón de scroll hacia abajo -->
+  <button class="scroll-btn scroll-bottom" id="scrollBottomBtn" (click)="scrollToBottom()">
+    <i class="fas fa-arrow-down"></i>
+  </button>
+  
+</html>

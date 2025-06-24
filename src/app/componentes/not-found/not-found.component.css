@@ -1,0 +1,98 @@
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #747474, #000000, #717171);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+  
+.error-title {
+    font-size: 3rem;
+    color: #8c65a8;
+    margin-bottom: 20px;
+    z-index: 20;
+}
+  
+.error-message {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 20px;
+    z-index: 20;
+}
+
+.error-image {
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    cursor: pointer;
+}
+
+/* Animaciones de movimiento */
+@keyframes move1 {
+    0% { transform: translate(10vw, 10vh); }
+    50% { transform: translate(-30vw, -20vh); }
+    100% { transform: translate(20vw, 30vh); }
+}
+.move1 { animation: move1 10s infinite alternate ease-in-out; }
+
+@keyframes move2 {
+    0% { transform: translate(-20vw, -10vh); }
+    50% { transform: translate(40vw, 15vh); }
+    100% { transform: translate(-10vw, 25vh); }
+}
+.move2 { animation: move2 12s infinite alternate ease-in-out; }
+
+@keyframes move3 {
+    0% { transform: translate(30vw, 20vh); }
+    50% { transform: translate(-40vw, -30vh); }
+    100% { transform: translate(10vw, -10vh); }
+}
+.move3 { animation: move3 14s infinite alternate ease-in-out; }
+
+@keyframes move4 {
+    0% { transform: translate(-15vw, 25vh); }
+    50% { transform: translate(35vw, -20vh); }
+    100% { transform: translate(-25vw, 15vh); }
+}
+.move4 { animation: move4 16s infinite alternate ease-in-out; }
+
+@keyframes move5 {
+    0% { transform: translate(5vw, -10vh); }
+    50% { transform: translate(-35vw, 30vh); }
+    100% { transform: translate(25vw, -15vh); }
+}
+.move5 { animation: move5 18s infinite alternate ease-in-out; }
+
+@keyframes move6 {
+    0% { transform: translate(20vw, -20vh); }
+    50% { transform: translate(-25vw, 35vh); }
+    100% { transform: translate(15vw, -25vh); }
+}
+.move6 { animation: move6 20s infinite alternate ease-in-out; }
+
+@keyframes move7 {
+    0% { transform: translate(-10vw, 15vh); }
+    50% { transform: translate(30vw, -35vh); }
+    100% { transform: translate(-20vw, 25vh); }
+}
+.move7 { animation: move7 22s infinite alternate ease-in-out; }
+
+/* Animación especial del gato */
+@keyframes moveCat {
+    0% { transform: translate(0, 0); }
+    15% { transform: translate(10vw, -5vh); }
+    30% { transform: translate(-15vw, 10vh); }
+    45% { transform: translate(20vw, -7vh); }
+    60% { transform: translate(-10vw, 15vh); }
+    75% { transform: translate(15vw, -12vh); }
+    90% { transform: translate(-7vw, 8vh); }
+    100% { transform: translate(0, 0); }
+}
+.moveCat { animation: moveCat 6s infinite alternate ease-in-out; }

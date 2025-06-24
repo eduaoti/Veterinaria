@@ -1,0 +1,156 @@
+<section class="instalaciones-section">
+  <div class="container">
+    <h1 class="fade-in-up">¿Nuevo por aquí?</h1>
+    <h2 class="fade-in-up delay-1">Conoce Nuestras Instalaciones</h2>
+    <p class="intro-text fade-in-up delay-2">
+      En LUXPET HEALTH contamos con espacios modernos, seguros y cómodos para el bienestar de tu mascota.
+    </p>
+
+    <div class="galeria fade-in-up delay-3">
+      <div class="galeria-item hospitalizacion">
+        <span>Hospitalización</span>
+        <div class="interacciones">
+          <button (click)="darLike('hospitalizacion')">❤️ Like ({{ likes['hospitalizacion'] }})</button>
+          <input type="text" placeholder="Escribe un comentario" #comentarioInputHospitalizacion (keydown.enter)="agregarComentario('hospitalizacion', comentarioInputHospitalizacion.value); comentarioInputHospitalizacion.value=''">
+          <ul class="comentarios">
+            <li *ngFor="let comentario of comentarios['hospitalizacion']">{{ comentario }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="galeria-item espera">
+        <span>Sala de Espera</span>
+        <div class="interacciones">
+          <button (click)="darLike('espera')">❤️ Like ({{ likes['espera'] }})</button>
+          <input type="text" placeholder="Escribe un comentario" #comentarioInputEspera (keydown.enter)="agregarComentario('espera', comentarioInputEspera.value); comentarioInputEspera.value=''">
+          <ul class="comentarios">
+            <li *ngFor="let comentario of comentarios['espera']">{{ comentario }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="galeria-item revision">
+        <span>Área de Revisión</span>
+        <div class="interacciones">
+          <button (click)="darLike('revision')">❤️ Like ({{ likes['revision'] }})</button>
+          <input type="text" placeholder="Escribe un comentario" #comentarioInputRevision (keydown.enter)="agregarComentario('revision', comentarioInputRevision.value); comentarioInputRevision.value=''">
+          <ul class="comentarios">
+            <li *ngFor="let comentario of comentarios['revision']">{{ comentario }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="galeria-item quirofano">
+        <span>Área Quirúrgica</span>
+        <div class="interacciones">
+          <button (click)="darLike('quirofano')">❤️ Like ({{ likes['quirofano'] }})</button>
+          <input type="text" placeholder="Escribe un comentario" #comentarioInputQuirofano (keydown.enter)="agregarComentario('quirofano', comentarioInputQuirofano.value); comentarioInputQuirofano.value=''">
+          <ul class="comentarios">
+            <li *ngFor="let comentario of comentarios['quirofano']">{{ comentario }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="galeria-item estetica">
+        <span>Baño y Estética</span>
+        <div class="interacciones">
+          <button (click)="darLike('estetica')">❤️ Like ({{ likes['estetica'] }})</button>
+          <input type="text" placeholder="Escribe un comentario" #comentarioInputEstetica (keydown.enter)="agregarComentario('estetica', comentarioInputEstetica.value); comentarioInputEstetica.value=''">
+          <ul class="comentarios">
+            <li *ngFor="let comentario of comentarios['estetica']">{{ comentario }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="galeria-item guarderia">
+        <span>Guardería</span>
+        <div class="interacciones">
+          <button (click)="darLike('guarderia')">❤️ Like ({{ likes['guarderia'] }})</button>
+          <input type="text" placeholder="Escribe un comentario" #comentarioInputGuarderia (keydown.enter)="agregarComentario('guarderia', comentarioInputGuarderia.value); comentarioInputGuarderia.value=''">
+          <ul class="comentarios">
+            <li *ngFor="let comentario of comentarios['guarderia']">{{ comentario }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="galeria-item laboratorio">
+        <span>Laboratorio</span>
+        <div class="interacciones">
+          <button (click)="darLike('laboratorio')">❤️ Like ({{ likes['laboratorio'] }})</button>
+          <input type="text" placeholder="Escribe un comentario" #comentarioInputLaboratorio (keydown.enter)="agregarComentario('laboratorio', comentarioInputLaboratorio.value); comentarioInputLaboratorio.value=''">
+          <ul class="comentarios">
+            <li *ngFor="let comentario of comentarios['laboratorio']">{{ comentario }}</li>
+          </ul>
+        </div>
+      </div>
+    </div>    
+  </div>
+</section>
+<!-- MAPA DEL SITIO -->
+<div id="map">
+  <div class="sitemap-tree-container">
+    <h1>Mapa del Sitio</h1>
+    <ul class="sitemap-tree">
+      <li>
+        <div class="node main"><i class="fas fa-paw"></i> Luxpet Inicio</div>
+        <ul>
+          <li><a href="/login" class="node"><i class="fas fa-sign-in-alt"></i> Ingresar</a></li>
+          <li><a href="/cliente-registro" class="node"><i class="fas fa-user-plus"></i> Registro</a></li>
+          <li><a href="/nosotros" class="node"><i class="fas fa-users"></i> Nosotros</a></li>
+          <li><a href="/contacto" class="node"><i class="fas fa-envelope"></i> Contacto</a></li>
+          <li><a href="/servicios" class="node"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+          <li><a href="/mis-citas" class="node"><i class="fas fa-calendar-check"></i> Mis Citas</a></li> <!-- Nueva ruta -->
+          <li><a href="/agendar-cita" class="node"><i class="fas fa-calendar-plus"></i> Agendar Cita</a></li> <!-- Nueva ruta -->
+          <li><a href="/perfil" class="node"><i class="fas fa-user"></i> Perfil</a></li> <!-- Nueva ruta -->
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+ <!-- Pie de Página -->
+ <footer class="footer">
+  <div class="footer-container">
+      <div class="footer-logo">
+          <h2>LUXPET HEALTH</h2>
+          <p>Clínica Veterinaria</p>
+      </div>
+      
+      <div class="footer-links">
+          <a href="/nosotros">Nosotros</a>
+          <a href="/servicios">Servicios</a>
+          <a href="/contacto">Contacto</a>
+          <a routerLink="/aviso-privacidad">Aviso de privacidad</a>
+
+      </div>
+      
+      <div class="footer-contact">
+          <h3>Emergencias 24 hrs</h3>
+          <h3>Contacto</h3>
+          <p>Teléfono: +123 456 789</p>
+          <p>Email: luxepethealth&#64;gmail.com</p>
+          <p>Dolores Hidalgo, Guanajuato.</p>
+      </div>
+  </div>
+
+  <!-- Redes Sociales debajo de las secciones -->
+  <div class="footer-social">
+      <a href="https://www.facebook.com/luxpet" target="_blank" rel="noopener noreferrer" class="icon facebook">
+          <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/luxpet_health" target="_blank" rel="noopener noreferrer" class="icon instagram">
+          <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://twitter.com/luxpet_health" target="_blank" rel="noopener noreferrer" class="icon x">
+          <i class="fab fa-x-twitter"></i>
+      </a>
+  </div>
+</footer>
+
+<!-- Botones de scroll -->
+<button class="scroll-btn scroll-top" id="scrollTopBtn" (click)="scrollToTop()">
+<i class="fa fa-arrow-up"></i>
+</button>
+<button class="scroll-btn scroll-bottom" id="scrollBottomBtn" (click)="scrollToBottom()">
+<i class="fa fa-arrow-down"></i>
+</button>

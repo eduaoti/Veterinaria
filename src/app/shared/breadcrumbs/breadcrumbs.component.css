@@ -1,0 +1,37 @@
+.breadcrumbs {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px 20px;
+    font-size: 14px;
+    color: white;
+    text-transform: uppercase;
+    z-index: 999;
+  }
+  
+  .breadcrumbs a {
+    color: #cfb1e4;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  .breadcrumbs span {
+    margin: 0 5px;
+    color: white;
+  }
+  .breadcrumbs.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .breadcrumbs.visible {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: all;
+  }
+  

@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #E5F5F6; /* Azul pastel */
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.main-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 100px 20px 20px 20px; /* 👈 Primer valor es top */
+    background-color: #737373;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- HERO SECTION --- */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    background: linear-gradient(to right, #000000, #adacac);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-text {
+    max-width: 60%;
+}
+
+@media (min-width: 769px) {
+    .hero-text {
+        margin-left: 5%;
+    }
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    color: #cfb1e4;
+}
+
+.hero-text h2 {
+    color: #BFBFBF;
+}
+
+.hero-text .pet-check {
+    color: #cfb1e4;
+    margin: 15px 0;
+}
+
+.hero-image {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    width: 400px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* --- ANIMACIONES DE MASCOTAS --- */
+@keyframes movePerrito {
+    0% { transform: translate(-140px, -70px); }
+    50% { transform: translate(-140px, -80px); }
+    100% { transform: translate(-140px, -70px); }
+}
+
+@keyframes moveLola {
+    0% { transform: translate(-80px, 80px); }
+    50% { transform: translate(-80px, 70px); }
+    100% { transform: translate(-80px, 80px); }
+}
+
+@keyframes moveLolamini {
+    0% { transform: translate(50px, 40px); }
+    50% { transform: translate(50px, 38px); }
+    100% { transform: translate(50px, 40px); }
+}
+
+@keyframes moveGuera {
+    0% { transform: translate(70px, -190px); }
+    50% { transform: translate(70px, -185px); }
+    100% { transform: translate(70px, -190px); }
+}
+
+.hero-image::before {
+    content: '';
+    background-image: url('../assets/perrito.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    animation: movePerrito 2s infinite; 
+}
+
+.hero-image::after {
+    content: '';
+    background-image: url('../assets/lola.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    animation: moveLola 3s infinite; 
+}
+
+.hero-image .cat {
+    background-image: url('../assets/lolamini.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    animation: moveLolamini 2s infinite; 
+}
+
+.hero-image .rabbit {
+    background-image: url('../assets/guera.JPG');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 180px;  
+    height: 180px; 
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    animation: moveGuera 2s infinite; 
+}
+
+.hero::before,
+.hero::after {
+    content: '⭐';
+    position: absolute;
+    font-size: 4rem;
+    color: #FFD700;
+}
+
+.hero::before {
+    top: 20px;
+    left: 20px;
+}
+
+.hero::after {
+    bottom: 100px;
+    right: 20px;
+}
+
+/* --- BOTÓN DE SUBIR --- */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(207, 177, 228, 0.6);
+    color: rgb(123, 123, 123);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+/* ---------------------- */
+/* --- MAPA DEL SITIO --- */
+/* ---------------------- */
+/* --- CONTENEDOR PRINCIPAL DEL ÁRBOL --- */
+/* Animación suave */
+@keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.8) translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+  
+  /* Contenedor principal */
+  .sitemap-tree-container {
+    background: linear-gradient(to right, #000000, #adacac);
+    border-radius: 20px;
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 50px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    text-align: center;
+  }
+  
+  .sitemap-tree-container h1 {
+    color: #cfb1e4;
+    font-size: 28px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Estructura del árbol */
+  .sitemap-tree, .sitemap-tree ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  
+  .sitemap-tree li {
+    padding: 20px 10px 0 10px;
+    text-align: center;
+    position: relative;
+    animation: fadeInScale 0.8s ease forwards;
+  }
+  
+  /* Conectores del árbol */
+  .sitemap-tree li::before,
+  .sitemap-tree li::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 20px;
+    border-top: 2px solid #cfb1e4;
+  }
+  
+  .sitemap-tree li::before {
+    right: 50%;
+    border-right: 2px solid #cfb1e4;
+  }
+  
+  .sitemap-tree li::after {
+    left: 50%;
+    border-left: 2px solid #cfb1e4;
+  }
+  
+  .sitemap-tree li:only-child::before,
+  .sitemap-tree li:only-child::after {
+    content: none;
+  }
+  
+  .sitemap-tree li:first-child::before {
+    border: none;
+  }
+  
+  .sitemap-tree li:last-child::after {
+    border: none;
+  }
+  
+  /* Nodo */
+  .node {
+    display: inline-block;
+    background: #cfb1e4;
+    color: #000;
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    animation: fadeInScale 0.5s ease-in;
+  }
+  
+  .node:hover {
+    background: #e6d4f5;
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(255, 255, 255, 0.3);
+  }
+  
+  .node i {
+    margin-right: 8px;
+  }
+  
+  .node.main {
+    background: #b38dd8;
+    color: white;
+    font-size: 18px;
+    position: relative;
+    top: -20px; /* Sube el botón */
+  }
+  
+  /* RESPONSIVE para pantallas pequeñas */
+  @media (max-width: 768px) {
+    .sitemap-tree,
+    .sitemap-tree ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .sitemap-tree li::before,
+    .sitemap-tree li::after {
+      display: none;
+    }
+  
+    .node {
+      margin: 10px 0;
+      width: 90%;
+      max-width: 300px;
+    }
+  }
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 20px;
+    }
+  
+    .hero-text {
+      max-width: 100%;
+      text-align: center;
+      margin: 0;
+    }
+  
+    .hero-image {
+      position: relative;
+      width: 100%;
+      margin-top: 20px;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+  
+    /* Elimina posicionamiento absoluto en móviles */
+    .hero-image::before,
+    .hero-image::after,
+    .hero-image .cat,
+    .hero-image .rabbit {
+      position: static;
+      animation: none;
+      margin: 0 auto;
+    }
+  
+    .hero-image::before,
+    .hero-image::after {
+      display: none; /* Opcional si quieres ocultar las estrellas */
+    }
+  
+    .hero-image .cat,
+    .hero-image .rabbit {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXPET HEALTH - Servicios</title>
+    <link rel="stylesheet" href="servicios.component.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <app-navbar-home></app-navbar-home>
+
+    <!-- Servicios -->
+    <section class="full-width-section fixed-section" id="servicios">
+        <h2>Nuestros Servicios</h2>
+
+        <div class="info-container">
+            <!-- Primera fila -->
+            <div class="info-card">
+                <div class="info-content">
+                    <i class="fas fa-user-md fa-4x"></i>
+                    <h3>Consultas</h3>
+                    <p class="service-detail">Nuestras consultas ofrecen un diagnóstico completo de la salud de tu mascota.</p>
+                    <div class="service-image consulta"></div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-content">
+                    <i class="fas fa-paw fa-4x"></i>
+                    <h3>Cirugías</h3>
+                    <p class="service-detail">Servicios de cirugía con tecnología avanzada y profesionales altamente capacitados.</p>
+                    <div class="service-image cirugia"></div>
+                </div>
+            </div>
+
+            <!-- Segunda fila -->
+            <div class="info-card">
+                <div class="info-content">
+                    <i class="fas fa-vial fa-4x"></i>
+                    <h3>Laboratorio</h3>
+                    <p class="service-detail">Análisis de sangre, orina y más para la detección temprana de enfermedades.</p>
+                    <div class="service-image laboratorio"></div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-content">
+                    <i class="fas fa-cut fa-4x"></i>
+                    <h3>Estética y Baños</h3>
+                    <p class="service-detail">Baños, cortes y cuidados estéticos para tu mascota.</p>
+                    <div class="service-image estetica"></div>
+                </div>
+            </div>
+
+            <!-- Última fila -->
+            <div class="info-card last-card">
+                <div class="info-content">
+                    <i class="fas fa-home fa-4x"></i>
+                    <h3>Guardería</h3>
+                    <p class="service-detail">Un ambiente seguro y cómodo para el cuidado de tu mascota.</p>
+                    <div class="service-image guarderia"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h2>LUXPET HEALTH</h2>
+                <p>Clínica Veterinaria</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="/nosotros">Nosotros</a>
+                <a href="/servicios">Servicios</a>
+                <a href="/contacto">Contacto</a>
+                <a routerLink="/aviso-privacidad">Aviso de privacidad</a>
+
+            </div>
+            
+            <div class="footer-contact">
+                <h3>Emergencias 24 hrs</h3>
+                <h3>Contacto</h3>
+                <p>Teléfono: +123 456 789</p>
+                <p>Email: luxepethealth&#64;gmail.com</p>
+                <p>Dolores Hidalgo, Guanajuato.</p>
+            </div>
+        </div>
+
+        <!-- Redes Sociales debajo de las secciones -->
+        <div class="footer-social">
+            <a href="https://www.facebook.com/luxpet" target="_blank" rel="noopener noreferrer" class="icon facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/luxpet_health" target="_blank" rel="noopener noreferrer" class="icon instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://twitter.com/luxpet_health" target="_blank" rel="noopener noreferrer" class="icon x">
+                <i class="fab fa-x-twitter"></i>
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+<button class="scroll-btn scroll-top" id="scrollTopBtn" (click)="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<button class="scroll-btn scroll-bottom" id="scrollBottomBtn" (click)="scrollToBottom()">
+    <i class="fas fa-arrow-down"></i>
+</button>

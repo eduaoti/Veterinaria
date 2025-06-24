@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUXPET HEALTH</title>
+  <link rel="stylesheet" href="home.component.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <app-navbar-home></app-navbar-home>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="main-container">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>LUXPET HEALTH</h1>
+        <h2>Abierto de Lunes a Viernes</h2>
+        <h2>Horario de atención 9:00am - 6:00pm</h2>
+        <p class="pet-check">¿Has revisado a tu mascota hoy?</p>
+      </div>
+      <div class="hero-image">
+        <div class="cat"></div>
+        <div class="rabbit"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- MAPA DEL SITIO -->
+  <div id="map">
+    <div class="sitemap-tree-container">
+      <h1>Mapa del Sitio</h1>
+      <ul class="sitemap-tree">
+        <li>
+          <div class="node main"><i class="fas fa-paw"></i> Luxpet Inicio</div>
+          <ul>
+            <li><a href="/login" class="node"><i class="fas fa-sign-in-alt"></i> Ingresar</a></li>
+            <li><a href="/cliente-registro" class="node"><i class="fas fa-user-plus"></i> Registro</a></li>
+            <li><a href="/nosotros" class="node"><i class="fas fa-users"></i> Nosotros</a></li>
+            <li><a href="/contacto" class="node"><i class="fas fa-envelope"></i> Contacto</a></li>
+            <li><a href="/servicios" class="node"><i class="fas fa-concierge-bell"></i> Servicios</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>

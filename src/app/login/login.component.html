@@ -1,0 +1,43 @@
+<app-navbar-home></app-navbar-home>
+
+<div class="background-container">
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="login-container card shadow-sm p-4">
+      <h2 class="text-center">Iniciar Sesión</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electrónico:</label>
+          <input id="email" formControlName="email" type="email" class="form-control" />
+          <div *ngIf="emailControl.invalid && emailControl.touched" class="text-danger">
+            <small>Por favor ingresa un correo válido.</small>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña:</label>
+          <input id="password" formControlName="password" type="password" class="form-control" />
+          <div *ngIf="passwordControl.invalid && passwordControl.touched" class="text-danger">
+            <small>La contraseña es requerida.</small>
+          </div>
+        </div>
+
+        <div *ngIf="errorMessage" class="error text-danger mb-3">{{ errorMessage }}</div>
+
+     <ngx-recaptcha2 
+  [siteKey]="siteKey" 
+  (success)="onCaptchaResolved($event)">
+</ngx-recaptcha2>
+
+      
+        <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid || !captchaResolved">
+          Iniciar Sesión
+        </button>
+
+        <div class="register-message mt-3 text-center">
+          <p>¿No tienes cuenta? <a (click)="onRegister()" class="link-primary">Regístrate aquí</a></p>
+          <p><a (click)="onForgotPassword()" class="link-primary">¿Olvidaste tu contraseña?</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

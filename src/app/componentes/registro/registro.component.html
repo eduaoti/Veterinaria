@@ -1,0 +1,145 @@
+
+<div class="container mt-5">
+  <div class="registro-container">
+    <h2 class="text-center mb-4">Registro de Mascota</h2>
+    <form [formGroup]="registroForm" (ngSubmit)="registrarMascota()" novalidate>
+      
+      <!-- Nombre del Dueño -->
+      <div formGroupName="dueno" class="mb-3">
+        <label for="duenoNombre">Nombre del Dueño</label>
+        <input id="duenoNombre" formControlName="nombre" type="text" class="form-control" required />
+        <div *ngIf="registroForm.get('dueno.nombre')?.invalid && (registroForm.get('dueno.nombre')?.dirty || registroForm.get('dueno.nombre')?.touched)" class="invalid-feedback">
+          El nombre del dueño es obligatorio.
+        </div>
+      </div>
+
+      <!-- Especie -->
+      <div class="mb-3">
+        <label for="especie">Especie</label>
+        <select id="especie" formControlName="especie" class="form-select" (change)="onEspecieChange()" required>
+          <option value="" disabled selected>Selecciona una especie...</option>
+          <option value="canino">Canino</option>
+          <option value="felino">Felino</option>
+          <option value="reptil">Reptil</option>
+          <option value="ave">Ave</option>
+          <option value="roedor">Roedor</option>
+        </select>
+      </div>
+
+      <!-- Raza -->
+      <div class="mb-3">
+        <label for="raza">Raza</label>
+        <select id="raza" formControlName="raza" class="form-select" required>
+          <option value="" disabled selected>Selecciona una raza...</option>
+          <option *ngFor="let raza of razas" [value]="raza">{{ raza }}</option>
+        </select>
+      </div>
+
+      <!-- Nombre de la Mascota -->
+      <div class="mb-3">
+        <label for="nombreMascota">Nombre de la Mascota</label>
+        <input id="nombreMascota" formControlName="nombreMascota" type="text" class="form-control" required />
+      </div>
+
+      <!-- Edad -->
+      <div class="mb-3">
+        <label for="edad">Edad</label>
+        <input id="edad" formControlName="edad" type="number" min="0" class="form-control" required />
+      </div>
+
+      <!-- Sexo -->
+      <div class="mb-3">
+        <label for="sexo">Sexo</label>
+        <select id="sexo" formControlName="sexo" class="form-select" required>
+          <option value="" disabled selected>Selecciona...</option>
+          <option value="macho">Macho</option>
+          <option value="hembra">Hembra</option>
+        </select>
+      </div>
+
+      <!-- Peso (Kg) -->
+      <div class="mb-3">
+        <label for="pesoKg">Peso (Kg)</label>
+        <input id="pesoKg" formControlName="pesoKg" type="number" class="form-control" required />
+      </div>
+
+      <!-- Fecha de Ingreso -->
+      <div class="mb-3">
+        <label for="fechaIngreso">Fecha de Ingreso</label>
+        <input id="fechaIngreso" formControlName="fechaIngreso" type="date" class="form-control" required />
+      </div>
+
+      <!-- Fecha de Nacimiento -->
+      <div class="mb-3">
+        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+        <input id="fechaNacimiento" formControlName="fechaNacimiento" type="date" class="form-control" required />
+      </div>
+
+      <!-- Alergias -->
+      <div formGroupName="alergias" class="mb-3">
+        <label class="form-label">¿Existen Alergias?</label>
+        <div class="form-check">
+          <input id="alergiasExistente" type="checkbox" formControlName="existe" class="form-check-input" />
+          <label for="alergiasExistente" class="form-check-label">Sí</label>
+        </div>
+        <label for="alergiasObservaciones" class="form-label">Observaciones</label>
+        <input id="alergiasObservaciones" formControlName="observaciones" type="text" class="form-control" />
+      </div>
+
+      <!-- Alimentación -->
+      <div formGroupName="alimentacion" class="mb-3">
+        <label for="alimentacionEstado" class="form-label">Estado de Alimentación</label>
+        <select id="alimentacionEstado" formControlName="estado" class="form-select" required>
+          <option value="" disabled selected>Selecciona...</option>
+          <option *ngFor="let option of estadoAlimentacionOptions" [value]="option">{{ option }}</option>
+        </select>
+        <label for="alimentacionObservaciones" class="form-label mt-2">Observaciones</label>
+        <input id="alimentacionObservaciones" formControlName="observaciones" type="text" class="form-control" />
+      </div>
+
+      <!-- Veterinario -->
+      <div formGroupName="veterinario" class="mb-3">
+        <label for="veterinarioNombre">Nombre del Veterinario</label>
+        <input id="veterinarioNombre" formControlName="nombre" type="text" class="form-control" required />
+        <label for="clinica">Clínica</label>
+        <input id="clinica" formControlName="clinica" type="text" class="form-control" />
+      </div>
+
+    <!-- Servicios Agendados (Reemplaza vacunas) -->
+<div *ngIf="serviciosCargados.length > 0" class="mb-3">
+  <label class="form-label text-white">Servicios Agendados</label>
+  <ul class="list-group">
+    <li
+      *ngFor="let servicio of serviciosCargados"
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      {{ servicio.nombre }}
+      <span class="badge bg-success">${{ servicio.precio }}</span>
+    </li>
+  </ul>
+  <p class="mt-2 text-end text-success fw-bold">Total a pagar: ${{ totalServicios }}</p>
+</div>
+
+      <!-- Foto -->
+      <div class="mb-3">
+        <label for="foto">Foto</label>
+        <input id="foto" type="file" (change)="onFileSelected($event)" class="form-control" required />
+      </div>
+
+     <!-- Botón de Enviar -->
+     <button type="submit" class="btn btn-primary">Registrar Mascota</button>
+    </form>
+
+    <!-- Mensaje de Registrando -->
+    <p *ngIf="registrando" class="mt-3 text-center text-info">Registrando...</p>
+
+    <!-- Mensaje de Registro Exitoso -->
+    <div *ngIf="registroExitoso" class="mt-3 text-center">
+      <p class="text-success">Mascota registrada con éxito.</p>
+      <button (click)="volverAlCalendario()" class="btn btn-success">Volver al Calendario</button>
+    </div>
+
+    <!-- Mensaje de Respuesta en caso de error -->
+    <p *ngIf="mensaje && !registrando && !registroExitoso" class="mt-3 text-center text-danger">{{ mensaje }}</p>
+  </div>
+</div>

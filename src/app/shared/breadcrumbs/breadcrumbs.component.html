@@ -1,0 +1,9 @@
+<div class="breadcrumbs" [ngClass]="{ 'hidden': !isVisible, 'visible': isVisible }">
+  <ng-container *ngFor="let crumb of breadcrumbLinks; let i = index">
+    <ng-container *ngIf="i > 0">
+      <span> &gt; </span>
+    </ng-container>
+    <a *ngIf="i < breadcrumbLinks.length - 1" [routerLink]="crumb.url">{{ crumb.label }}</a>
+    <span *ngIf="i === breadcrumbLinks.length - 1">{{ crumb.label }}</span>
+  </ng-container>
+</div>

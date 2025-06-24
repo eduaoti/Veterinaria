@@ -1,0 +1,71 @@
+<!-- Barra de navegación -->
+<div class="navbar-home" [class.hidden]="isHidden" [class.visible]="!isHidden">
+  <nav>
+    <a routerLink="/" class="logo-link"></a>
+
+    <button class="menu-toggle" *ngIf="!isWideScreen" (click)="toggleMenu()">
+      <i class="fa fa-paw"></i>
+    </button>
+
+    <div *ngIf="menuVisible || isWideScreen">
+      <button class="nav-button" (click)="navigateTo('/login')" [class.active]="activeRoute === '/login'">
+        <i class="fa fa-home"></i> Ingresar
+        <span *ngIf="activeRoute === '/login'" class="indicator"></span>
+      </button>
+      <button class="nav-button" (click)="navigateTo('/cliente-registro')" [class.active]="activeRoute === '/cliente-registro'">
+        <i class="fa fa-user-plus"></i> Registro
+        <span *ngIf="activeRoute === '/cliente-registro'" class="indicator"></span>
+      </button>
+      <button class="nav-button" (click)="navigateTo('/nosotros')" [class.active]="activeRoute === '/nosotros'">
+        <i class="fa fa-shield-dog"></i> Nosotros
+        <span *ngIf="activeRoute === '/nosotros'" class="indicator"></span>
+      </button>
+      <button class="nav-button" (click)="navigateTo('/contacto')" [class.active]="activeRoute === '/contacto'">
+        <i class="fa fa-envelope"></i> Contacto
+        <span *ngIf="activeRoute === '/contacto'" class="indicator"></span>
+      </button>
+      <button class="nav-button" (click)="navigateTo('/servicios')" [class.active]="activeRoute === '/servicios'">
+        <i class="fa fa-address-book"></i> Servicios
+        <span *ngIf="activeRoute === '/servicios'" class="indicator"></span>
+      </button>
+    </div>
+  </nav>
+</div>
+
+<!-- Buscador flotante -->
+<div
+  class="floating-search"
+  [ngStyle]="{ top: posY + 'px', left: posX + 'px' }"
+  (mousedown)="startDrag($event)"
+  (document:mousemove)="onDrag($event)"
+  (document:mouseup)="endDrag()"
+  (touchstart)="startTouch($event)"
+  (document:touchmove)="onTouchMove($event)"
+  (document:touchend)="endTouch()"
+>
+  <button class="icono-lupa" (click)="toggleBuscador()">
+    <i class="fa" [ngClass]="mostrarBuscador ? 'fa-times' : 'fa-search'"></i>
+  </button>
+
+  <div class="buscador-navbar animado" *ngIf="mostrarBuscador">
+    <input
+      type="text"
+      [(ngModel)]="busqueda"
+      placeholder="Buscar sección..."
+      (input)="mostrarMensaje = false"
+    />
+    <button (click)="buscar()" class="buscar-btn">
+      <i class="fa fa-arrow-right"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Mensaje de error si no se encuentra la sección -->
+<div *ngIf="mostrarMensaje" class="mensaje-busqueda">
+  {{ mensajeBusqueda }}
+</div>
+
+<!-- Contenedor principal -->
+<div class="content">
+  <!-- Contenido de la página -->
+</div>
