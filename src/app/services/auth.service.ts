@@ -23,7 +23,7 @@ export class AuthService {
     );
   }
 
-  register(nombre: string, apellidoPaterno: string, apellidoMaterno: string, email: string, password: string, telefono: string, role: string = 'cliente'): Observable<any> {
+  register(nombre: string, apellidoPaterno: string, apellidoMaterno: string, email: string, password: string, telefono: string, role: string = 'veterinario'): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/register`, { nombre, apellidoPaterno, apellidoMaterno, email, password, telefono, role });
   }
 
