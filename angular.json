@@ -48,11 +48,11 @@
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
-         "assets": [
-            "src/favicon.ico",
-            "src/assets",
-            "src/app/assets"
-          ],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/app/assets"
+            ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css",
@@ -62,25 +62,23 @@
               "node_modules/primeng/resources/primeng.min.css",
               "node_modules/primeicons/primeicons.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
-
             ],
             "scripts": []
           },
           "configurations": {
             "production": {
-           "budgets": [
-  {
-    "type": "initial",
-    "maximumWarning": "2.5mb",
-    "maximumError": "3mb"
-  },
-  {
-    "type": "anyComponentStyle",
-    "maximumWarning": "6kb",
-    "maximumError": "10kb"
-  }
-]
-,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2.5mb",
+                  "maximumError": "3mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ],
               "outputHashing": "all"
             },
             "development": {
@@ -93,6 +91,14 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "buildTarget": "veterinaria-frontend:build",
+            "host": "localhost",
+            "port": 4200,
+            "ssl": true,
+            "sslCert": "ssl/localhost.crt",
+            "sslKey": "ssl/localhost.key"
+          },
           "configurations": {
             "production": {
               "buildTarget": "veterinaria-frontend:build:production"
