@@ -37,11 +37,12 @@ const routes: Routes = [
   { path: 'servicios', component: ServiciosComponent },
   { path: 'aviso-privacidad', component: AvisoPrivacidadComponent },
 
-  // CLIENTE: solo puede acceder si está logueado y su rol es 'cliente'
+  // CLIENTE: solo puede acceder si está logueado y su rol es 'cliente' andrea
   { 
     path: 'cliente-inicio', 
     component: ClienteInicioComponent,
     canActivate: [AuthGuard, RolGuard],
+    
     data: { expectedRole: 'cliente' }
   },
   { 
@@ -69,7 +70,7 @@ const routes: Routes = [
     data: { expectedRole: 'cliente' }
   },
 
-  // VETERINARIO: solo puede acceder si está logueado y su rol es 'veterinario'
+  // VETERINARIO: solo puede acceder si está logueado y su rol es 'veterinario' Andrea
   { 
     path: 'veterinario-inicio', 
     component: VeterinarioInicioComponent,
@@ -115,4 +116,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
