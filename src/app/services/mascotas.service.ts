@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class MascotasService {
   private apiUrl = 'https://veterinaria-backend-production-f7f7.up.railway.app/api/mascotas';
-
+  
   constructor(private http: HttpClient) {}
 
   // Método para registrar una nueva mascota

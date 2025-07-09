@@ -9,6 +9,7 @@ export class CitasService {
   private apiUrl = 'https://veterinaria-backend-production-f7f7.up.railway.app/api/citas';
   private apiUrlPlanes = 'https://veterinaria-backend-production-f7f7.up.railway.app/api/planes';
   
+  
   constructor(private http: HttpClient) {}
 
   // Método para agendar una nueva cita
