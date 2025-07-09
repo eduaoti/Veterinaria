@@ -9,6 +9,7 @@ export class PlanesService {
   private planesUrl = 'https://veterinaria-backend-production-f7f7.up.railway.app/api/planes';
   private citasUrl = 'https://veterinaria-backend-production-f7f7.up.railway.app/api/citas';
   
+  
   constructor(private http: HttpClient) {}
 
   crearPlanConCitas(plan: any): Observable<any> {

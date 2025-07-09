@@ -10,6 +10,7 @@ import { catchError, tap } from 'rxjs/operators';
 export class AuthService {
   private apiUrl = 'https://veterinaria-backend-production-f7f7.up.railway.app/auth';
 
+
   constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string): Observable<any> {
