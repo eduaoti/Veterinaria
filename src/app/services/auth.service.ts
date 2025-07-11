@@ -4,6 +4,11 @@ import { Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 import { catchError, tap } from 'rxjs/operators';
 
+
+
+//Cifrado en tránsito garantizado mediante HTTPS (Railway).
+
+//Control de excepciones para evitar exposición de información sensible a usuarios finales.
 @Injectable({
   providedIn: 'root'
 })
